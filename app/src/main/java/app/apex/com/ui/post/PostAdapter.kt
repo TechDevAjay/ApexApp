@@ -29,7 +29,7 @@ class PostAdapter(
     }
 
     override fun getItemCount(): Int {
-        postArrayList.size
+        return postArrayList.size
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {

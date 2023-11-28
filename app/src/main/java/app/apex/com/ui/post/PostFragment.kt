@@ -35,8 +35,10 @@ class PostFragment : Fragment() {
         val root: View = binding.root
 
         initPostAdapter()
-        postViewModel.callPostApi()
         setObserver()
+
+        postViewModel.callPostApi()
+
         return root
     }
 
