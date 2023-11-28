@@ -1,13 +1,13 @@
-package app.apex.com.ui.dashboard
+package app.apex.com.ui.todos
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel : ViewModel() {
+class ToDoViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
+        value = "Coming soon..."
     }
     val text: LiveData<String> = _text
 }

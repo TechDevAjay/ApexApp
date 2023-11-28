@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_post">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="app.apex.com.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_post"
+        android:name="app.apex.com.ui.post.PostFragment"
+        android:label="@string/title_post"
+        tools:layout="@layout/fragment_post" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="app.apex.com.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_photos"
+        android:name="app.apex.com.ui.photo.PhotoFragment"
+        android:label="@string/title_photos"
+        tools:layout="@layout/fragment_photos" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="app.apex.com.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_to_dos"
+        android:name="app.apex.com.ui.todos.ToDoFragment"
+        android:label="@string/title_to_dos"
+        tools:layout="@layout/fragment_to_do" />
 </navigation>
