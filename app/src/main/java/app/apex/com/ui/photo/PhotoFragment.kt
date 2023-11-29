@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -50,9 +49,8 @@ class PhotoFragment : Fragment() {
     }
 
     private fun setObserver() {
-        photoViewModel.photoData.observe(viewLifecycleOwner) {
-            loadPhotoData(it)
-        }
+        photoViewModel.photoData.observe(viewLifecycleOwner) {loadPhotoData(it) }
+        photoViewModel.loadingState.observe(viewLifecycleOwner){loadStatus(it)}
     }
 
     private fun loadPhotoData(photoArrayList: ArrayList<Photo>) {
@@ -64,5 +62,13 @@ class PhotoFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun loadStatus(status: Boolean) {
+        if(status) {
+            binding.pbPhoto.visibility = View.VISIBLE
+        } else {
+            binding.pbPhoto.visibility = View.GONE
+        }
     }
 }
