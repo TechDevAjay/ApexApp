@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import app.apex.com.data.Photo
 import app.apex.com.databinding.FragmentPhotosBinding
 
@@ -36,10 +37,14 @@ class PhotoFragment : Fragment() {
         initAdapter()
         setObserver()
 
+        photoViewModel.callPhotoApi()
+
         return root
     }
 
     private fun initAdapter() {
+        binding.rvPhoto.layoutManager = GridLayoutManager(activity, 3)
+
         photoAdapter = PhotoAdapter(activity as Context, photoArrayList)
         binding.rvPhoto.adapter = photoAdapter
     }

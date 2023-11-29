@@ -9,8 +9,6 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_photo"
         android:layout_width="match_parent"
-        android:orientation="vertical"
         android:background="@color/purple_3000"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_height="match_parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
