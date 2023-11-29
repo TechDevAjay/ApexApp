@@ -1,5 +1,6 @@
 package app.apex.com.ui.photo
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,11 +8,16 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import app.apex.com.data.Photo
 import app.apex.com.databinding.FragmentPhotosBinding
 
 class PhotoFragment : Fragment() {
 
     private var _binding: FragmentPhotosBinding? = null
+    private lateinit var photoViewModel: PhotoViewModel
+    private lateinit var photoAdapter: PhotoAdapter
+
+    private var photoArrayList = ArrayList<Photo>()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,14 +28,32 @@ class PhotoFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(PhotoViewModel::class.java)
+        photoViewModel = ViewModelProvider(this).get(PhotoViewModel::class.java)
 
         _binding = FragmentPhotosBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        initAdapter()
+        setObserver()
 
         return root
+    }
+
+    private fun initAdapter() {
+        photoAdapter = PhotoAdapter(activity as Context, photoArrayList)
+        binding.rvPhoto.adapter = photoAdapter
+    }
+
+    private fun setObserver() {
+        photoViewModel.photoData.observe(viewLifecycleOwner) {
+            loadPhotoData(it)
+        }
+    }
+
+    private fun loadPhotoData(photoArrayList: ArrayList<Photo>) {
+        this.photoArrayList.clear()
+        this.photoArrayList.addAll(photoArrayList)
+        photoAdapter.notifyDataSetChanged()
     }
 
     override fun onDestroyView() {
