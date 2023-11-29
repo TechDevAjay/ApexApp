@@ -8,4 +8,5 @@
     <string name="comment_body">Comment Body</string>
     <string name="post_title">Post Title</string>
     <string name="post_body">Post Body</string>
+    <string name="comments">Comments</string>
 </resources>
