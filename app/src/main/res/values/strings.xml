@@ -3,4 +3,9 @@
     <string name="title_post">Post</string>
     <string name="title_photos">Photos</string>
     <string name="title_to_dos">To Dos</string>
+    <string name="name_surname">Name Surname</string>
+    <string name="email">email@email.com</string>
+    <string name="comment_body">Comment Body</string>
+    <string name="post_title">Post Title</string>
+    <string name="post_body">Post Body</string>
 </resources>

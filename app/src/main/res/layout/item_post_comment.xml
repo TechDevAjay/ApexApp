@@ -5,7 +5,7 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="1dp"
         android:clickable="true"
         android:elevation="4dp"
         android:focusable="true"
@@ -22,7 +22,7 @@
                 android:id="@+id/tv_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Name Surname"
+                android:text="@string/name_surname"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -31,7 +31,7 @@
                 android:id="@+id/tv_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="email@email.com"
+                android:text="@string/email"
                 android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@id/tv_name" />
 
@@ -40,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Comment Body"
+                android:text="@string/comment_body"
                 app:layout_constraintTop_toBottomOf="@id/tv_email" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

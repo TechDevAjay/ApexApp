@@ -51,7 +51,7 @@ class PhotoAdapter(
                 .asBitmap()
                 .load(photo.url)
                 .centerCrop()
-                .sizeMultiplier(0.6f)
+                .sizeMultiplier(0.8f)
                 .placeholder(R.drawable.ic_place_holder)
                 .into(itemPhotoBinding.ivPhoto)
         }
