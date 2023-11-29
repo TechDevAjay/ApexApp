@@ -49,9 +49,6 @@ class PostFragment : Fragment(), PostClickListener {
     private fun initPostAdapter() {
         postAdapter = PostAdapter(activity as Context, this, postArrayList)
         binding.rvPost.adapter = postAdapter
-
-        //binding.layout.rvFeed.setItemViewCacheSize(20);
-        //binding.rvPost.setHasFixedSize(true)
     }
 
     private fun setObserver() {
