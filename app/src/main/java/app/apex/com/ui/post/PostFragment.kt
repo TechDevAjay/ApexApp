@@ -74,7 +74,11 @@ class PostFragment : Fragment(), PostClickListener {
         when(v.id) {
             R.id.cv_post -> {
                 activity?.let {
+                    val bundle = Bundle()
+                    bundle.putParcelable("POST_DATA", postArrayList[position])
+
                     val intent = Intent(it, CommentActivity::class.java)
+                    intent.putExtras(bundle)
                     it.startActivity(intent)
                 }
             }

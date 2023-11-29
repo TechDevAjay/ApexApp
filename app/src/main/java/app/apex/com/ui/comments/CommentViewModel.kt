@@ -16,7 +16,7 @@ class CommentViewModel: ViewModel() {
 
     private fun loadDemoData() {
         val list = ArrayList<Comment>()
-        for (i in 1..5) {
+        for (i in 1..10) {
             val comment = Comment(1,
                 i,
                 "Name $i",
@@ -28,7 +28,7 @@ class CommentViewModel: ViewModel() {
         mutableCommentData.value = list
     }
 
-    fun callCommentApi() {
+    fun callCommentApi(postId: Int) {
         loadingState.value = true
         loadDemoData()
     }
