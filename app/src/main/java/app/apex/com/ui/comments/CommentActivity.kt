@@ -1,11 +1,10 @@
 package app.apex.com.ui.comments
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import app.apex.com.R
 import app.apex.com.data.local.Comment
 import app.apex.com.data.local.Post
 import app.apex.com.databinding.ActivityCommentBinding
@@ -25,7 +24,7 @@ class CommentActivity : AppCompatActivity() {
 
         //Action Bar title
         supportActionBar?.setDisplayShowHomeEnabled(true)
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_home_up)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         commentViewModel = ViewModelProvider(this)[CommentViewModel::class.java]
 
@@ -71,5 +70,10 @@ class CommentActivity : AppCompatActivity() {
         } else {
             binding.pbComment.visibility = View.GONE
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressedDispatcher.onBackPressed()
+        return true
     }
 }
