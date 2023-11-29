@@ -1,4 +1,4 @@
-package app.apex.com.data
+package app.apex.com.data.local
 
 data class Comment(
     val postId: Int,

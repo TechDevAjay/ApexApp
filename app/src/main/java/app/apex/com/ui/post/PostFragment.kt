@@ -6,14 +6,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import app.apex.com.R
-import app.apex.com.data.Post
+import app.apex.com.data.local.Post
 import app.apex.com.databinding.FragmentPostBinding
 import app.apex.com.ui.comments.CommentActivity
-import com.bumptech.glide.load.engine.Engine.LoadStatus
 import java.util.ArrayList
 
 class PostFragment : Fragment(), PostClickListener {

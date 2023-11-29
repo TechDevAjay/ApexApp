@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import app.apex.com.data.Photo
+import app.apex.com.data.local.Photo
 import app.apex.com.databinding.FragmentPhotosBinding
 
 class PhotoFragment : Fragment() {

@@ -6,8 +6,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import app.apex.com.R
-import app.apex.com.data.Comment
-import app.apex.com.data.Post
+import app.apex.com.data.local.Comment
+import app.apex.com.data.local.Post
 import app.apex.com.databinding.ActivityCommentBinding
 
 class CommentActivity : AppCompatActivity() {

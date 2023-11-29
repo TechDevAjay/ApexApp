@@ -1,8 +1,8 @@
 package app.apex.com.data.remote.client
 
-import app.apex.com.data.Comment
-import app.apex.com.data.Photo
-import app.apex.com.data.Post
+import app.apex.com.data.local.Comment
+import app.apex.com.data.local.Photo
+import app.apex.com.data.local.Post
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

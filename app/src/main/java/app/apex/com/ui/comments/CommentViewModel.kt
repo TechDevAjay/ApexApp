@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import app.apex.com.data.Comment
+import app.apex.com.data.local.Comment
 import app.apex.com.data.remote.client.RetrofitInstance
 import retrofit2.Call
 import retrofit2.Callback

@@ -1,4 +1,4 @@
-package app.apex.com.data
+package app.apex.com.data.local
 
 import android.os.Parcel
 import android.os.Parcelable

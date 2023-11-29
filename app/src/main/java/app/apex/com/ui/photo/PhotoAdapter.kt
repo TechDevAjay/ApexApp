@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import app.apex.com.R
-import app.apex.com.data.Photo
+import app.apex.com.data.local.Photo
 import app.apex.com.databinding.ItemPhotoBinding
 import com.bumptech.glide.Glide
 
