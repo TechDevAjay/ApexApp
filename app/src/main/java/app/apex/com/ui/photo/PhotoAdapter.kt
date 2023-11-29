@@ -9,7 +9,7 @@ import app.apex.com.R
 import app.apex.com.data.Photo
 import app.apex.com.databinding.ItemPhotoBinding
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
+
 
 class PhotoAdapter(
     context: Context,
@@ -34,7 +34,7 @@ class PhotoAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val viewHolder = holder as ViewHolder
-        viewHolder.onBind(photoArrayList[position], position)
+        viewHolder.onBind(photoArrayList[position])
     }
 
     inner class ViewHolder(itemPhotoBinding: ItemPhotoBinding): RecyclerView.ViewHolder(itemPhotoBinding.root) {
@@ -44,15 +44,15 @@ class PhotoAdapter(
             this.itemPhotoBinding = itemPhotoBinding
         }
 
-        fun onBind(photo: Photo, position: Int) {
+        fun onBind(photo: Photo) {
 
             Glide
                 .with(context)
                 .asBitmap()
                 .load(photo.url)
                 .centerCrop()
-                //.thumbnail(photo.thumbnailUrl)
-                .placeholder(R.drawable.ic_navigation_photos_24)
+                .sizeMultiplier(0.6f)
+                .placeholder(R.drawable.ic_place_holder)
                 .into(itemPhotoBinding.ivPhoto)
         }
     }
