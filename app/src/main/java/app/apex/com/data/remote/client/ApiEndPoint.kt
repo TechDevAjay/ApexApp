@@ -4,9 +4,8 @@ import app.apex.com.data.Comment
 import app.apex.com.data.Photo
 import app.apex.com.data.Post
 import retrofit2.Call
-import retrofit2.http.Field
 import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface ApiEndPoint {
 
@@ -15,8 +14,8 @@ interface ApiEndPoint {
     fun getPostData(): Call<ArrayList<Post>>
 
     //Comment Api
-    @POST("comments")
-    fun getPostComment(@Field ("postId") postId: Int): Call<ArrayList<Comment>>
+    @GET("comments")
+    fun getPostComment(@Query("postId") postId: Int): Call<ArrayList<Comment>>
 
    //Photo List
     @GET("photos")

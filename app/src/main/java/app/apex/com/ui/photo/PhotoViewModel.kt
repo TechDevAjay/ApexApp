@@ -17,7 +17,7 @@ class PhotoViewModel : ViewModel() {
 
     private fun loadDemoData() {
         val list = ArrayList<Photo>()
-        for (i in 1..10) {
+        for (i in 1..100) {
             val photo = Photo(
                 i,
                 1,

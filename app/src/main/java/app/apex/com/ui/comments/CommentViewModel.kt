@@ -1,35 +1,42 @@
 package app.apex.com.ui.comments
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import app.apex.com.data.Comment
+import app.apex.com.data.remote.client.RetrofitInstance
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class CommentViewModel: ViewModel() {
 
     private val TAG = CommentViewModel::class.java.simpleName
 
-    private val loadingState: MutableLiveData<Boolean> = MutableLiveData()
+    val loadingState: MutableLiveData<Boolean> = MutableLiveData()
     private val mutableCommentData: MutableLiveData<ArrayList<Comment>> = MutableLiveData()
     val commentData: LiveData<ArrayList<Comment>>
         get() = mutableCommentData
 
-    private fun loadDemoData() {
-        val list = ArrayList<Comment>()
-        for (i in 1..10) {
-            val comment = Comment(1,
-                i,
-                "Name $i",
-                "$i@email.com",
-                "expedita maiores dignissimos facilis\nipsum est rem est fugit velit sequi\neum odio dolores dolor totam\noccaecati ratione eius rem velit"
-            )
-            list.add(comment)
+    private val callBackComment = object : Callback<ArrayList<Comment>> {
+        override fun onResponse(
+            call: Call<ArrayList<Comment>>,
+            response: Response<ArrayList<Comment>>
+        ) {
+            loadingState.value = false
+            mutableCommentData.value = response.body()
         }
-        mutableCommentData.value = list
+
+        override fun onFailure(call: Call<ArrayList<Comment>>, t: Throwable) {
+            loadingState.value = false
+            Log.d(TAG, "Failure: " + t.message)
+        }
+
     }
 
     fun callCommentApi(postId: Int) {
         loadingState.value = true
-        loadDemoData()
+        RetrofitInstance.apiEndPoint.getPostComment(postId).enqueue(callBackComment)
     }
 }

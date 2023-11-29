@@ -2,6 +2,7 @@ package app.apex.com.ui.comments
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import app.apex.com.R
@@ -54,14 +55,21 @@ class CommentActivity : AppCompatActivity() {
     }
 
     private fun setObserver() {
-        commentViewModel.commentData.observe(this) {
-            loadCommentData(it)
-        }
+        commentViewModel.commentData.observe(this) {loadCommentData(it) }
+        commentViewModel.loadingState.observe(this) {loadStatus(it)}
     }
 
     private fun loadCommentData(commentArrayList: ArrayList<Comment>) {
         this.commentArrayList.clear()
         this.commentArrayList.addAll(commentArrayList)
         commentAdapter.notifyDataSetChanged()
+    }
+
+    private fun loadStatus(status: Boolean) {
+        if(status) {
+            binding.pbComment.visibility = View.VISIBLE
+        } else {
+            binding.pbComment.visibility = View.GONE
+        }
     }
 }

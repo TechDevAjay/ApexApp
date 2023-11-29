@@ -13,6 +13,7 @@ import app.apex.com.R
 import app.apex.com.data.Post
 import app.apex.com.databinding.FragmentPostBinding
 import app.apex.com.ui.comments.CommentActivity
+import com.bumptech.glide.load.engine.Engine.LoadStatus
 import java.util.ArrayList
 
 class PostFragment : Fragment(), PostClickListener {
@@ -54,9 +55,8 @@ class PostFragment : Fragment(), PostClickListener {
     }
 
     private fun setObserver() {
-        postViewModel.postData.observe(viewLifecycleOwner) {
-            loadPostData(it)
-        }
+        postViewModel.postData.observe(viewLifecycleOwner) { loadPostData(it) }
+        postViewModel.loadingState.observe(viewLifecycleOwner) {loadStatus(it)}
     }
 
     private fun loadPostData(postArrayList: ArrayList<Post>) {
@@ -82,6 +82,14 @@ class PostFragment : Fragment(), PostClickListener {
                     it.startActivity(intent)
                 }
             }
+        }
+    }
+
+    private fun loadStatus(status: Boolean) {
+        if(status) {
+            binding.pbPost.visibility = View.VISIBLE
+        } else {
+            binding.pbPost.visibility = View.GONE
         }
     }
 }

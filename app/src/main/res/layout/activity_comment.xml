@@ -46,6 +46,17 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
 
+        <ProgressBar
+            android:id="@+id/pb_comment"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintStart_toStartOf="@+id/rv_comment"
+            app:layout_constraintEnd_toEndOf="@+id/rv_comment"
+            app:layout_constraintTop_toTopOf="@+id/rv_comment"
+            app:layout_constraintBottom_toBottomOf="@+id/rv_comment"
+            android:visibility="gone"
+            android:elevation="4dp"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_comment"
             android:layout_width="match_parent"
