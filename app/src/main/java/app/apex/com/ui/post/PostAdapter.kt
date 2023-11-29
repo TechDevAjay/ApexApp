@@ -46,8 +46,6 @@ class PostAdapter(
         fun onBind(post: Post, position: Int) {
             itemPostBinding.tvPostTitle.text = post.title
             itemPostBinding.tvPostBody.text = post.body
-
-
         }
     }
 }

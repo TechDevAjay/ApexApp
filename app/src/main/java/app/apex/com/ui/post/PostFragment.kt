@@ -57,8 +57,8 @@ class PostFragment : Fragment() {
     }
 
     private fun loadPostData(postArrayList: ArrayList<Post>) {
-        postArrayList.clear()
-        postArrayList.addAll(postArrayList)
+        this.postArrayList.clear()
+        this.postArrayList.addAll(postArrayList)
         postAdapter.notifyDataSetChanged()
     }
 
