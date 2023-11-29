@@ -56,7 +56,7 @@ class PhotoFragment : Fragment() {
     private fun loadPhotoData(photoArrayList: ArrayList<Photo>) {
         this.photoArrayList.clear()
         this.photoArrayList.addAll(photoArrayList)
-        photoAdapter.notifyDataSetChanged()
+        photoAdapter.notifyItemRangeChanged(0, photoArrayList.size)
     }
 
     override fun onDestroyView() {

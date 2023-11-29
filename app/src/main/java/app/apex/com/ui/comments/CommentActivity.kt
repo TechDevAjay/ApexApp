@@ -62,7 +62,7 @@ class CommentActivity : AppCompatActivity() {
     private fun loadCommentData(commentArrayList: ArrayList<Comment>) {
         this.commentArrayList.clear()
         this.commentArrayList.addAll(commentArrayList)
-        commentAdapter.notifyDataSetChanged()
+        commentAdapter.notifyItemRangeChanged(0, commentArrayList.size)
     }
 
     private fun loadStatus(status: Boolean) {

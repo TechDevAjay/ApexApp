@@ -57,7 +57,7 @@ class PostFragment : Fragment(), PostClickListener {
     private fun loadPostData(postArrayList: ArrayList<Post>) {
         this.postArrayList.clear()
         this.postArrayList.addAll(postArrayList)
-        postAdapter.notifyDataSetChanged()
+        postAdapter.notifyItemRangeChanged(0, postArrayList.size)
     }
 
     override fun onDestroyView() {
