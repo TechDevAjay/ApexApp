@@ -1,6 +1,7 @@
 package app.apex.com.ui.post
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,11 +9,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import app.apex.com.R
 import app.apex.com.data.Post
 import app.apex.com.databinding.FragmentPostBinding
+import app.apex.com.ui.comments.CommentActivity
 import java.util.ArrayList
 
-class PostFragment : Fragment() {
+class PostFragment : Fragment(), PostClickListener {
 
     private var _binding: FragmentPostBinding? = null
     private lateinit var postViewModel: PostViewModel
@@ -43,7 +46,7 @@ class PostFragment : Fragment() {
     }
 
     private fun initPostAdapter() {
-        postAdapter = PostAdapter(activity as Context, postArrayList)
+        postAdapter = PostAdapter(activity as Context, this, postArrayList)
         binding.rvPost.adapter = postAdapter
 
         //binding.layout.rvFeed.setItemViewCacheSize(20);
@@ -65,5 +68,16 @@ class PostFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onItemClicked(v: View, position: Int) {
+        when(v.id) {
+            R.id.cv_post -> {
+                activity?.let {
+                    val intent = Intent(it, CommentActivity::class.java)
+                    it.startActivity(intent)
+                }
+            }
+        }
     }
 }
